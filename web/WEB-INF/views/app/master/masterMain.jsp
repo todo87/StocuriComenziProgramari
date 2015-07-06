@@ -1,13 +1,13 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="/WEB-INF/views/includes/script/header.jsp"/>
-<script type="text/javascript" src="/res/angular/angular-route.min.js"></script>
-<script type="text/javascript" src="/res/custom_script/admin/routes.js"></script>
-<script type="text/javascript" src="/res/custom_script/admin/commonAdmin.js"></script>
+<%@ include file="/WEB-INF/views/includes/onlyForLoggedUsers.jsp" %>
 <html>
 <head>
     <title>Main Master</title>
 </head>
+<script content="text/javascript">
+    depo.controller('mainController', ['$scope', '$http', function ($scope, $http) {
+    $scope.student = "asda";
+    }]);
+</script>
 <body ng-app="depo">
     <div class="container-fluid">
         <p class="logout_paragraph">Logged as <strong>${pageContext.request.userPrincipal.name}</strong> | <a id="logout_link" onclick="formSubmit()">Logout</a></p>

@@ -1,9 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="/WEB-INF/views/includes/script/header.jsp"/>
-<script type="text/javascript" src="/res/angular/angular-route.min.js"></script>
-<script type="text/javascript" src="/res/custom_script/admin/routes.js"></script>
-<script type="text/javascript" src="/res/custom_script/admin/commonAdmin.js"></script>
+<%@ include file="/WEB-INF/views/includes/onlyForLoggedUsers.jsp" %>
 <html>
 <head>
     <title>Main Admin</title>
