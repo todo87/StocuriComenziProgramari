@@ -43,7 +43,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/viewer/**").access("hasRole('ROLE_VIEWER')")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/").failureUrl("/?error")
+                .formLogin().permitAll().loginPage("/").failureUrl("/?error")
                 .usernameParameter("username").passwordParameter("password").successHandler(customAuthenticationSuccessHandler)
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/?logout")

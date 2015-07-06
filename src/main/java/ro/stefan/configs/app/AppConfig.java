@@ -34,6 +34,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/res/**").addResourceLocations("/WEB-RES/");
+        registry.addResourceHandler("/favicon").addResourceLocations("/WEB-RES/img/favicon.ico");
     }
 
     @Override
