@@ -1,0 +1,19 @@
+.admin_login_center_div{
+    margin: 0 auto;
+    width:50% /* value of your choice which suits your alignment */
+}
+.logout_paragraph{
+    padding-top: 5px;
+    text-align: right;
+}
+.admin_left_menu{
+    background-color: #eee;
+    border-radius: 6px;
+    max-width: 250px;
+}
+.admin_collection_list{
+    padding-left: 9px;
+}
+.admin_data_table{
+
+}
