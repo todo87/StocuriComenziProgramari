@@ -7,36 +7,42 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
-public class Users {
+public class Users extends BaseEntityAudit{
 
-    @Id @GeneratedValue(strategy=GenerationType.AUTO) @Column(name="id")
-    private Long id;
+    @NotEmpty
+    @Column(name = "name")
+    private String name;
 
-    @NotEmpty @Column(name = "nume")
-    private String nume;
+    @NotEmpty
+    @Column(name = "surname")
+    private String surname;
 
-    @NotEmpty @Column(name = "prenume")
-    private String prenume;
-
-    @NotEmpty @Column(name = "username")
+    @NotEmpty
+    @Column(name = "username")
     private String username;
 
-    @NotEmpty @Column(name = "parola")
-    private String parola;
+    @NotEmpty
+    @Column(name = "password")
+    private String password;
 
-    @NotEmpty @Column(name = "mail")
-    private String mail;
+    @NotEmpty
+    @Column(name = "email")
+    private String email;
 
-    @NotNull @Column(name = "enabled")
+    @NotNull
+    @Column(name = "enabled")
     private Boolean enabled;
 
-    @NotNull @Column(name = "accNonExp")
-     Boolean accNonExp;
+    @NotNull
+    @Column(name = "accNonExp")
+    private Boolean accNonExp;
 
-    @NotNull @Column(name = "accNonLocked")
+    @NotNull
+    @Column(name = "accNonLocked")
     private Boolean accNonLocked;
 
-    @NotNull @Column(name = "credNonExpired")
+    @NotNull
+    @Column(name = "credNonExpired")
     private Boolean credNonExpired;
 
     @OneToOne()
@@ -55,20 +61,20 @@ public class Users {
         this.id = id;
     }
 
-    public String getNume() {
-        return nume;
+    public String getName() {
+        return name;
     }
 
-    public void setNume(String nume) {
-        this.nume = nume;
+    public void setName(String nume) {
+        this.name = nume;
     }
 
-    public String getPrenume() {
-        return prenume;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setPrenume(String prenume) {
-        this.prenume = prenume;
+    public void setSurname(String prenume) {
+        this.surname = prenume;
     }
 
     public String getUsername() {
@@ -79,20 +85,20 @@ public class Users {
         this.username = username;
     }
 
-    public String getParola() {
-        return parola;
+    public String getPassword() {
+        return password;
     }
 
-    public void setParola(String parola) {
-        this.parola = parola;
+    public void setPassword(String parola) {
+        this.password = parola;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String mail) {
+        this.email = mail;
     }
 
     public Boolean getEnabled() {
@@ -151,11 +157,11 @@ public class Users {
         Users users = (Users) o;
 
         if (id != null ? !id.equals(users.id) : users.id != null) return false;
-        if (!nume.equals(users.nume)) return false;
-        if (!prenume.equals(users.prenume)) return false;
+        if (!name.equals(users.name)) return false;
+        if (!surname.equals(users.surname)) return false;
         if (!username.equals(users.username)) return false;
-        if (!parola.equals(users.parola)) return false;
-        if (!mail.equals(users.mail)) return false;
+        if (!password.equals(users.password)) return false;
+        if (!email.equals(users.email)) return false;
         if (!enabled.equals(users.enabled)) return false;
         if (!accNonExp.equals(users.accNonExp)) return false;
         if (!accNonLocked.equals(users.accNonLocked)) return false;
@@ -167,11 +173,11 @@ public class Users {
 
     @Override
     public int hashCode() {
-        int result = nume.hashCode();
-        result = 31 * result + prenume.hashCode();
+        int result = name.hashCode();
+        result = 31 * result + surname.hashCode();
         result = 31 * result + username.hashCode();
-        result = 31 * result + parola.hashCode();
-        result = 31 * result + mail.hashCode();
+        result = 31 * result + password.hashCode();
+        result = 31 * result + email.hashCode();
         result = 31 * result + enabled.hashCode();
         result = 31 * result + accNonExp.hashCode();
         result = 31 * result + accNonLocked.hashCode();
@@ -183,11 +189,11 @@ public class Users {
     public String toString() {
         return "Users{" +
                 "id=" + id +
-                ", nume='" + nume + '\'' +
-                ", prenume='" + prenume + '\'' +
+                ", nume='" + name + '\'' +
+                ", prenume='" + surname + '\'' +
                 ", username='" + username + '\'' +
-                ", parola='" + parola + '\'' +
-                ", mail='" + mail + '\'' +
+                ", parola='" + password + '\'' +
+                ", mail='" + email + '\'' +
                 ", enabled=" + enabled +
                 ", accNonExp=" + accNonExp +
                 ", accNonLocked=" + accNonLocked +

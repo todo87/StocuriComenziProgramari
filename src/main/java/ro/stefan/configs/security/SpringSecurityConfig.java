@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import ro.stefan.configs.security.custom.CustomAuthenticationSuccessHandler;
 import ro.stefan.configs.security.custom.UsersDetailsServiceImpl;
 
@@ -15,7 +16,7 @@ import ro.stefan.configs.security.custom.UsersDetailsServiceImpl;
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UsersDetailsServiceImpl usersDetailsService;
+    UserDetailsService usersDetailsService;
 
     @Autowired
     CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
@@ -35,7 +36,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        //TODO de cautat cum adaug chestiile de mai jos pt mai multe roluri. nu merge acum ramane pe ultimul cu viewer
         http    .authorizeRequests()
                 .antMatchers("/master/**").access("hasRole('ROLE_MASTER')")
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")

@@ -6,21 +6,15 @@
 //import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 //
 //import javax.persistence.EntityManager;
+//import javax.persistence.PersistenceContext;
 //import java.io.Serializable;
 //
 //public class BaseService<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> {
 //
-//    @Autowired
-//    LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean;
+//    @PersistenceContext
+//    private static EntityManager em;
 //
-////    @Autowired
-////    ApplicationContext appContext;
-////
-////    EntityManager em = appContext.getBean();
-//
-//    private EntityManager entityManager = (EntityManager) localContainerEntityManagerFactoryBean.getObject();
-//
-//    public BaseService(Class t ) {
-//        super(t, entityManager);
+//    public BaseService(Class T ) {
+//        super(T, em);
 //    }
 //}

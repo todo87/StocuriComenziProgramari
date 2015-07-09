@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import ro.stefan.model.Users;
 import ro.stefan.serv.interfaces.UsersService;
 
-import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,22 +20,32 @@ public class UsersDetailsServiceImpl implements UserDetailsService{
     @Autowired
     private UsersService usersService;
 
-    private User user;
+    private UserCustom user;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserCustom loadUserByUsername(String username) throws UsernameNotFoundException {
         Users users = usersService.findByUserName(username);
         if (null != users){
             List<GrantedAuthority> authList = new ArrayList<>();
             authList.add(new SimpleGrantedAuthority("ROLE_" + users.getRole().getRole()));
-            user = new User(
-                users.getUsername(),
-                    users.getParola(),
+            user = new UserCustom(
+                    users.getUsername(),
+                    users.getPassword(),
                     users.getEnabled(),
                     users.getAccNonExp(),
                     users.getCredNonExpired(),
                     users.getAccNonLocked(),
-                    authList
+                    authList,
+                    users.getId(),
+                    users.getName(),
+                    users.getSurname(),
+                    users.getEmail(),
+                    users.getRole(),
+                    users.getCreatedAt(),
+                    users.getCreatedBy(),
+                    users.getModifiedAt(),
+                    users.getModifiedBy(),
+                    users.getUnit()
             );
         }
         return user;

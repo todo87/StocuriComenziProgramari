@@ -6,11 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class Unit {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO) @Column(name="id")
-    private Long id;
+public class Unit extends BaseEntity{
 
     @NotEmpty
     @Column(name = "unit")
