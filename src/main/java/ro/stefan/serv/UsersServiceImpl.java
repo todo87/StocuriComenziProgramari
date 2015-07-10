@@ -4,23 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.stefan.model.Users;
+import ro.stefan.repo.GenericRepo;
 import ro.stefan.repo.UsersRepo;
 import ro.stefan.serv.interfaces.UsersService;
 
 @Service
 @Transactional
-public class UsersServiceImpl implements UsersService  //extends BaseService implements UsersService
-{
+public class UsersServiceImpl extends GenericServiceImpl<Users,Long> implements UsersService{
 
     @Autowired
     private UsersRepo usersRepo;
 
-//    @Autowired
-//    LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean;
-//
-//    public UsersServiceImpl() {
-//        super(Users.class);
-//    }
+    public UsersServiceImpl(GenericRepo<Users, Long> genericRepo) {
+        super(genericRepo);
+    }
 
     @Override
     public boolean findByLogin(String userName, String password) {
