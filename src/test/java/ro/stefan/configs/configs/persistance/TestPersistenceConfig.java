@@ -1,9 +1,4 @@
-package ro.stefan.configs.persistance;
-
-import java.util.HashMap;
-import java.util.Map;
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
+package ro.stefan.configs.configs.persistance;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +11,17 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
+
 @Configuration
 @EnableJpaRepositories({"ro.stefan.repo"})
 @EnableTransactionManagement
-public class PersistenceConfig {
+//@ComponentScan({ "ro.stefan.repo" })
+//@ComponentScan({ "ro.stefan" })
+public class TestPersistenceConfig {
 
     //TODO gasit o varianta cu entityManagerFactory
     @Bean(name = "entityManagerFactory")
@@ -40,7 +42,7 @@ public class PersistenceConfig {
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/depo?autoReconnect=true");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/testdepo?autoReconnect=true");
         dataSource.setUsername("demoApp");
         dataSource.setPassword("Skodafabiars180!");
 

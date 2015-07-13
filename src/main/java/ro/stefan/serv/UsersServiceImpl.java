@@ -15,8 +15,8 @@ public class UsersServiceImpl extends GenericServiceImpl<Users,Long> implements 
     @Autowired
     private UsersRepo usersRepo;
 
-    public UsersServiceImpl(GenericRepo<Users, Long> genericRepo) {
-        super(genericRepo);
+    public UsersServiceImpl() {
+        super(Users.class);
     }
 
     @Override

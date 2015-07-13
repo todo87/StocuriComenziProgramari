@@ -14,29 +14,32 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface GenericService<T extends BaseEntity, ID extends Serializable>{
-    
+
+    public T findOne(ID id);
     public T findOne(Specification<T> spec);
     public List<T> findAll();
+    public Page<T> findAll(Pageable pageable);
     public List<T> findAll(Sort sort);
     public List<T> findAll(Iterable<ID> ids);
-    public <T> List<T> save(Iterable<T> entities);
-    public void flush();
-    public <T> T saveAndFlush(T entity);
-    public void deleteInBatch(Iterable<T> entities);
-    public void deleteAllInBatch();
-    public T getOne(ID id);
-    public Page<T> findAll(Pageable pageable);
-    public <T> T save(T entity);
-    public T findOne(ID id);
-    public boolean exists(ID id);
-    public long count();
-    public void delete(ID id);
-    public void delete(T entity);
-    public void delete(Iterable<? extends T> entities);
-    public void deleteAll();
     public List<T> findAll(Specification<T> spec);
     public Page<T> findAll(Specification<T> spec, Pageable pageable);
     public List<T> findAll(Specification<T> spec, Sort sort);
+
+    public T save(T entity);
+    public List<T> save(Iterable<T> entities);
+    public T saveAndFlush(T entity);
+    public void flush();
+
+    public void deleteAll();
+    public void delete(ID id);
+    public void delete(T entity);
+    public void delete(Iterable<T> entities);
+    public void deleteInBatch(Iterable<T> entities);
+    public void deleteAllInBatch();
+
+    public boolean exists(ID id);
+    public long count();
+
     public long count(Specification<T> spec);
 
 }

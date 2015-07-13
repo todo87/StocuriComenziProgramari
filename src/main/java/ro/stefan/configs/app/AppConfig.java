@@ -25,9 +25,7 @@ import java.util.List;
 
 @EnableWebMvc
 @Configuration
-//@ComponentScan({"ro.stefan.controller", "ro.stefan.serv"}) "ro.stefan.configs"
 @ComponentScan(basePackages = {"ro.stefan.controller","ro.stefan.serv","ro.stefan.configs.security.custom"})
-//@ComponentScan({"ro.stefan"})
 @Import({PersistenceConfig.class, SpringSecurityConfig.class})
 public class AppConfig extends WebMvcConfigurerAdapter{
 

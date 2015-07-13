@@ -46,7 +46,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().permitAll().loginPage("/").failureUrl("/?error")
                 .usernameParameter("username").passwordParameter("password").successHandler(customAuthenticationSuccessHandler)
                 .and()
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/?logout")
+                .logout().permitAll().logoutUrl("/logout").logoutSuccessUrl("/?logout")
                 .and()
                 .csrf();
 
