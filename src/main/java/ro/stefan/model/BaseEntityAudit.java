@@ -29,8 +29,9 @@ public class BaseEntityAudit extends BaseEntity{
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    @PrePersist
+    public void setCreatedAt() {
+        this.createdAt = new LocalDateTime();
     }
 
     public String getCreatedBy() {
@@ -45,8 +46,9 @@ public class BaseEntityAudit extends BaseEntity{
         return modifiedAt;
     }
 
-    public void setModifiedAt(LocalDateTime modifiedAt) {
-        this.modifiedAt = modifiedAt;
+    @PreUpdate
+    public void setModifiedAt() {
+        this.modifiedAt = new LocalDateTime();
     }
 
     public String getModifiedBy() {
