@@ -21,7 +21,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class PersistenceConfig {
 
-    //TODO gasit o varianta cu entityManagerFactory
     @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean sessionFactory() {
         LocalContainerEntityManagerFactoryBean lcemfb = new LocalContainerEntityManagerFactoryBean();

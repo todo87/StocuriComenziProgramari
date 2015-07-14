@@ -23,7 +23,6 @@ import java.util.Map;
 //@ComponentScan({ "ro.stefan" })
 public class TestPersistenceConfig {
 
-    //TODO gasit o varianta cu entityManagerFactory
     @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean sessionFactory() {
         LocalContainerEntityManagerFactoryBean lcemfb = new LocalContainerEntityManagerFactoryBean();

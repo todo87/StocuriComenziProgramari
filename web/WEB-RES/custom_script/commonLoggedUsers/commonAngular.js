@@ -1,1 +1,1 @@
-var depo = angular.module('depo',[]);
+var depo = angular.module('depo',['datatables']);
