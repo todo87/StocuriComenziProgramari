@@ -19,8 +19,6 @@ import java.util.Map;
 @Configuration
 @EnableJpaRepositories({"ro.stefan.repo"})
 @EnableTransactionManagement
-//@ComponentScan({ "ro.stefan.repo" })
-//@ComponentScan({ "ro.stefan" })
 public class TestPersistenceConfig {
 
     @Bean(name = "entityManagerFactory")
