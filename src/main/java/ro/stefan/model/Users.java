@@ -53,6 +53,10 @@ public class Users extends BaseEntityAudit{
     @JoinColumn(name = "id_unit")
     private Unit unit;
 
+    @OneToOne
+    @JoinColumn(name = "id_city")
+    private City city;
+
     public Long getId() {
         return id;
     }

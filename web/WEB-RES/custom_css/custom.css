@@ -14,6 +14,9 @@
 .admin_tables_list{
     padding-left: 9px;
 }
+.admin_tables_list_chk_box{
+    display: block;
+}
 .admin_data_table{
 
 }

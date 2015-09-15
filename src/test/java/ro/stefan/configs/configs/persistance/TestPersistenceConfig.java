@@ -29,8 +29,8 @@ public class TestPersistenceConfig {
         //persistence unit
         lcemfb.setDataSource(dataSource());
         lcemfb.setJpaVendorAdapter(hjva);
-        lcemfb.setPackagesToScan(new String[]{"ro.stefan.model"});
-        lcemfb.setJpaPropertyMap(hibernateProperties());;
+        lcemfb.setPackagesToScan("ro.stefan.model");
+        lcemfb.setJpaPropertyMap(hibernateProperties());
 
         return lcemfb;
     }

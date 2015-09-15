@@ -1,17 +1,4 @@
-<%@ include file="/WEB-INF/views/includes/onlyForLoggedUsers.jsp" %>
-<html>
-<head>
-    <title>Main Admin</title>
-</head>
-<body ng-app="depo">
-    <div class="container-fluid">
-        <p class="logout_paragraph">Logged as <strong>${pageContext.request.userPrincipal.name}</strong> | <a id="logout_link" onclick="formSubmit()">Logout</a></p>
-        <form action="/logout" method="post" id="logoutForm" style="display: none;">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
-        <div class="jumbotron">
-            <h2>Welcome !</h2>
-        </div>
+<%@ include file="/WEB-INF/views/app/admin/head.jspf" %>
         <div id="divchkCollections" class="admin_left_menu pre-scrollable col-md-2">
 
         </div>
@@ -19,7 +6,4 @@
             {{student}}
 
         </div>
-
-    </div>
-</body>
-</html>
+<%@ include file="/WEB-INF/views/app/admin/footer.jspf" %>
