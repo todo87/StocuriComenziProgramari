@@ -27,13 +27,15 @@ public class MasterMainRest {
     UsersService usersService;
 
     @RequestMapping(value = "/listOfTables", method = RequestMethod.POST)
-    public MasterTablesDTO getListOfTables(){
+    public MasterTablesDTO getListOfTables(MasterTablesDTO masterTablesDTO){
         List<String> tables = new ArrayList<>();
         tables.add("unit");
         tables.add("role");
         tables.add("users");
 
-        MasterTablesDTO masterTablesDTO = new MasterTablesDTO();
+        if (null == masterTablesDTO.getSelected()){
+            masterTablesDTO.setSelected(tables.get(0));
+        }
         masterTablesDTO.setTables(tables);
 
         return masterTablesDTO;

@@ -1,4 +1,5 @@
 <%@ include file="/WEB-INF/views/includes/common.jsp" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Log in</title>

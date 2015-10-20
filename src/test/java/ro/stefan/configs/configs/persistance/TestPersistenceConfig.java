@@ -62,7 +62,7 @@ public class TestPersistenceConfig {
 
     Map<String,String> hibernateProperties() {
         Map<String,String> propMap = new HashMap<>();
-        propMap.put("hibernate.hbm2ddl.auto", "validate");
+        propMap.put("hibernate.hbm2ddl.auto", "create-drop");
         propMap.put("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
         propMap.put("hibernate.globally_quoted_identifiers", "true");
         propMap.put("hibernate.show_sql", "true");
