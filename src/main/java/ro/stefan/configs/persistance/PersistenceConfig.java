@@ -1,10 +1,5 @@
 package ro.stefan.configs.persistance;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
-
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +10,11 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 @EnableJpaRepositories({"ro.stefan.repo"})
@@ -29,8 +29,8 @@ public class PersistenceConfig {
         //persistence unit
         lcemfb.setDataSource(dataSource());
         lcemfb.setJpaVendorAdapter(hjva);
-        lcemfb.setPackagesToScan(new String[]{"ro.stefan.model"});
-        lcemfb.setJpaPropertyMap(hibernateProperties());;
+        lcemfb.setPackagesToScan("ro.stefan.model");
+        lcemfb.setJpaPropertyMap(hibernateProperties());
 
         return lcemfb;
     }

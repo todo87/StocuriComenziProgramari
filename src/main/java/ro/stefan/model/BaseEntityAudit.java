@@ -1,9 +1,13 @@
 package ro.stefan.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.Type;
 import org.joda.time.LocalDateTime;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
@@ -12,6 +16,7 @@ public class BaseEntityAudit extends BaseEntity{
     @NotNull
     @Column(name = "createdAt")
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy, HH:mm")
     protected LocalDateTime createdAt;
 
     @NotNull
@@ -20,6 +25,7 @@ public class BaseEntityAudit extends BaseEntity{
 
     @Column(name = "modifiedAt")
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy, HH:mm")
     protected LocalDateTime modifiedAt;
 
     @Column(name = "modifiedBy")

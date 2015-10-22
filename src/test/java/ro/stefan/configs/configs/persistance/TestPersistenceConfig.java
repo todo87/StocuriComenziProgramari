@@ -19,8 +19,6 @@ import java.util.Map;
 @Configuration
 @EnableJpaRepositories({"ro.stefan.repo"})
 @EnableTransactionManagement
-//@ComponentScan({ "ro.stefan.repo" })
-//@ComponentScan({ "ro.stefan" })
 public class TestPersistenceConfig {
 
     @Bean(name = "entityManagerFactory")
@@ -31,8 +29,8 @@ public class TestPersistenceConfig {
         //persistence unit
         lcemfb.setDataSource(dataSource());
         lcemfb.setJpaVendorAdapter(hjva);
-        lcemfb.setPackagesToScan(new String[]{"ro.stefan.model"});
-        lcemfb.setJpaPropertyMap(hibernateProperties());;
+        lcemfb.setPackagesToScan("ro.stefan.model");
+        lcemfb.setJpaPropertyMap(hibernateProperties());
 
         return lcemfb;
     }
@@ -64,7 +62,7 @@ public class TestPersistenceConfig {
 
     Map<String,String> hibernateProperties() {
         Map<String,String> propMap = new HashMap<>();
-        propMap.put("hibernate.hbm2ddl.auto", "validate");
+        propMap.put("hibernate.hbm2ddl.auto", "create-drop");
         propMap.put("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
         propMap.put("hibernate.globally_quoted_identifiers", "true");
         propMap.put("hibernate.show_sql", "true");

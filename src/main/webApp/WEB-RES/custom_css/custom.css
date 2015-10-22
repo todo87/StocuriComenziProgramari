@@ -1,0 +1,25 @@
+.admin_login_center_div{
+    margin: 0 auto;
+    width:50% /* value of your choice which suits your alignment */
+}
+.logout_paragraph{
+    padding-top: 5px;
+    text-align: right;
+}
+.admin_left_menu{
+    background-color: #eee;
+    border-radius: 6px;
+    max-width: 250px;
+}
+.admin_tables_list {
+    padding-left: 9px;
+}
+.admin_tables_list_chk_box{
+    display: block;
+}
+.no_left_padding{
+    padding-left: 0px;
+}
+.height_30{
+    height: 30px;
+}

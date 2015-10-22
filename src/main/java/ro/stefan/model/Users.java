@@ -1,12 +1,15 @@
 package ro.stefan.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.validator.constraints.NotEmpty;
+import ro.stefan.customJsonSerializers.UsersJsonSerializer;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
+@JsonSerialize(using = UsersJsonSerializer.class)
 public class Users extends BaseEntityAudit{
 
     @NotEmpty
@@ -45,13 +48,17 @@ public class Users extends BaseEntityAudit{
     @Column(name = "credNonExpired")
     private Boolean credNonExpired;
 
-    @OneToOne()
+    @OneToOne
     @JoinColumn(name = "id_role")
     private Role role;
 
     @OneToOne
     @JoinColumn(name = "id_unit")
     private Unit unit;
+
+    @OneToOne
+    @JoinColumn(name = "id_city")
+    private City city;
 
     public Long getId() {
         return id;
@@ -147,6 +154,14 @@ public class Users extends BaseEntityAudit{
 
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 
     @Override
